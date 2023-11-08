@@ -1,0 +1,49 @@
+x canary test
+
+xprocesstext takes an empty string and returns an empty string
+xprocesstext takes "hello" and returns "hello"
+
+xprocesstext takes "blah" which we'll consider to have incorrect spelling and returns "[blah]"
+
+xprocesstext takes "hello there" and returns "hello there"
+xprocesstext takes "hello tyop" and returns "hello [tyop]"
+xprocesstext takes "misp hello" and returns "[misp] hello"
+
+xprocesstext takes "hello tyop there misp" and returns "hello [tyop] there [misp]"
+
+xprocesstext takes text with two lines and returns text with two lines
+xprocesstext takes text with two lines with some incorrect spelling words and returns appropriate result
+
+xprocesstext takes text with three lines and returns text with three lines
+xprocesstext takes text with three lines with some incorrect spelling words and returns appropriate result
+
+xprocesstext takes text "hello there how aare you" but runs into an exception from the spellchecker when looking up spelling for there
+
+xprocesstext takes text "hello there hwo aare you" but runs into an exception from the spellchecker when looking up spelling for there and aare, and determined that hwo is a wrong spelling.
+
+xgetResponse takes a word and returns a response (a text of length > 0) from the webservice for spellchecker
+
+xparseText takes "true" and return true (boolean)
+xparseText takes "false" and return false (boolean)
+
+xspell_check pass the given word to getResponse, passes the response from it to parseText, and returns the response from parseText
+xspell_check throws an exception when getResponse throws an exception
+
+
+#Feedback: 
+Let's build a Console application.
+When run:
+it should prompt the user for a file name
+take the name of a file as input
+read the text from that file
+print to console the spellchecked text.
+
+Please exclude the UI from the code coverage. Provide a task to run it from the build.
+
+paver
+should run test
+
+paver run
+should run the program by using a file named sample.txt. Create the task so that when the task is run,
+it does not wait for any input from the user. The program will need the file name, but this task should
+provide the sample.txt file as the file name rather than waiting to be entered manually.

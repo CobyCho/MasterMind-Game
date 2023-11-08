@@ -1,0 +1,3 @@
+This is a sample text fiel
+mispeled words wil be marked
+This file is used to tets the code

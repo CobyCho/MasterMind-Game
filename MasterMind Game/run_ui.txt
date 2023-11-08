@@ -1,0 +1,5 @@
+Run using your file
+python -m paver ui
+
+Run using default sample.txt
+python -m paver run
